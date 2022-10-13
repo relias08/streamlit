@@ -71,8 +71,16 @@ def main():
             # st.image(pred_, width = 250)
 
             # For displaying the input image, ground truth & prediction side by side - remember that st.image() requires PIL objects !!!:
-            images = [img_, mask, pred_]
-            st.image(images, caption=['input image', 'ground_truth', 'prediction'], width=200)
+            #images = [img_, mask, pred_]
+            #st.image(images, caption=['input image', 'ground_truth', 'prediction'], width=200)
+            
+            col1, col2, col3 = st.columns([2, 2, 2])
+            with col1:
+                st.image(img_, caption=['input image'])#'test_img.png',width=360,use_column_width='never')
+            with col2:
+                st.image(mask, caption=['ground truth'])#'test_img.png',width=360,use_column_width='never')
+            with col3:
+                st.image(pred_, caption=['prediction')#'test_img.png',width=360,use_column_width='never')
 
     else:
         st.subheader("About")
