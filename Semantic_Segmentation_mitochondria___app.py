@@ -27,7 +27,7 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == "Home":       # Note --- 'Home' is for images
-        st.subheader("Sem Seg of Mitochondria in Electron Microscopy Images")
+        st.subheader("Semantic Segmentation of Mitochondria in Electron Microscopy Images")
 
         # Upload input image on Streamlit web site:
         image_file = st.file_uploader("Upload Input Image", type=['png','jpeg','jpg'])      # this image_file is ready to go into PIL.Image.open() !
