@@ -44,13 +44,13 @@ def main():
             img = img.resize((256, 256))      
 
             # -----------------------------
-            # For displaying input image in Streamlit
+            # For displaying input image alone in Streamlit
             img_ = img.copy()     # Note --- st.image() below which displays the image on the Streamlit web page requires a PIL object !!!
             # st.write('Input image')
             # st.image(img_, width=250)
 
             # -----------------------------
-            # For displaying the mask image (ie. ground truth in this case): 
+            # For displaying the mask image alone in Streamlit (ie. ground truth in this case): 
             mask = Image.open(mask_file)      # converts 'mask_file' to a PIL object
             mask = mask.resize((256, 256))    # just to make consistent with input image & pred image
             # st.image(mask, width=250)
