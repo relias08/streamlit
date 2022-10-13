@@ -18,9 +18,8 @@ from PIL import Image
 import tensorflow
 from tensorflow.keras.utils import normalize
 
-# need to get path to saved model on next line after mounting google drive
-model = tensorflow.keras.models.load_model(r"colab___204\filename\content\saved_models\100_epochs\1")
-
+# need to get path to saved model on Colab VM on to next line
+model = tensorflow.keras.models.load_model("/content/1")
 
 def main():
     menu = ["Home", "About"]
