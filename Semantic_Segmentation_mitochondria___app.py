@@ -65,11 +65,13 @@ def main():
             threshold = .3
             pred = (model.predict(arr)[0, :, :, 0] > threshold).astype(np.uint8)*255   # pred is np arr of size (256, 256). Pixel values are 0 (black) or 255 (white)
 
+            # -----------------------------
             # For displaying the predicted image alone:
             pred_ = Image.fromarray(pred)     # np array => PIL Object
             # pred_ = np.array(pred_)
             # st.write('prediction')
             # st.image(pred_, width = 250)
+            # -----------------------------
 
             # For displaying the input image, ground truth & prediction side by side - remember that st.image() requires PIL objects !!!:
             #images = [img_, mask, pred_]
