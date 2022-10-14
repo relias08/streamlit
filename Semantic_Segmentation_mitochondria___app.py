@@ -46,7 +46,7 @@ def main():
 
             # -----------------------------
             # For displaying input image alone in Streamlit
-            img_ = img.copy()     # Note --- st.image() below which displays the image on the Streamlit web page requires a PIL object !!!
+            img_ = img.copy()     # Note - img_ is a PIL Obj & st.image() below requires a PIL obj to display it on the Streamlit web page !!!
             # st.write('Input image')
             # st.image(img_, width=250)
 
