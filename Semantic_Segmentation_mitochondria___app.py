@@ -59,7 +59,7 @@ def main():
 
             # ****** MAKE PREDICTION ****** :
             # Convert PIL object to np array, then pre-process the image ie. normalize + expand_dims
-            img = np.array(img)     # convert PIL image to np array
+            img = np.array(img)      # PIL image => np array
             arr = np.expand_dims(np.expand_dims(normalize(img), 2), 0)   # normalize + expand_dims, now img.shape -> (1, 256, 256, 1)
             
             threshold = .3
