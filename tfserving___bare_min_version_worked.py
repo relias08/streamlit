@@ -1,5 +1,5 @@
 # For complete details on how to run predictions in Streamlit by using either the API end-point from 
-# TF Serving/ Torch Serve OR by using model.predict(), see the following file in laptop:
+# TF Serving/ Torch Serve (as done in this file) OR by using model.predict(), see the following file in laptop:
 # [204__how_to_run_predictions_in_Streamlit___super_stuff.ipynb]
 # (C:\Users\hduser\Desktop\_ALL_MAIN_WDS_03_07_2020\__Deploying_Models___MAIN\___Streamlit_and_mlflow\worked___mitichondria___Sreeni_204)
 
