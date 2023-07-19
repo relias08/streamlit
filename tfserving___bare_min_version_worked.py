@@ -3,7 +3,8 @@
 # [204__how_to_run_predictions_in_Streamlit___super_stuff.ipynb]
 # (C:\Users\hduser\Desktop\_ALL_MAIN_WDS_03_07_2020\__Deploying_Models___MAIN\___Streamlit_and_mlflow\worked___mitichondria___Sreeni_204)
 
-# I think this file has to be run in Laptop (see the API end-point with localhost!)
+# I think this file has to be run in Laptop and not Colab (see the API end-point with localhost!)
+# Big Q - can we run a container with TF Serving & a container with Streamlit in WSL or maybe an Oracle Virtual Box ???
 
 import streamlit as st
 import requests
