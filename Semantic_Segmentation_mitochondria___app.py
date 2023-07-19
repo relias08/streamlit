@@ -2,7 +2,7 @@
 # not requests.post() and that RestAPI end-point from TF Serving!
 
 # Location of this file in Github is:
-#https://github.com/relias08/streamlit/blob/main/Semantic_Segmentation_mitochondria___app.py"
+# https://github.com/relias08/streamlit/blob/main/Semantic_Segmentation_mitochondria___app.py"
 
 # This file is based on --- "jcharis___mitochondria___app.py"
 
@@ -22,7 +22,7 @@ from PIL import Image
 import tensorflow
 from tensorflow.keras.utils import normalize
 
-# need to get path to saved model on Colab VM on to next line
+# Create the model by using the path to saved model on Colab VM on to next line
 model = tensorflow.keras.models.load_model("/content/1")
 
 def main():
