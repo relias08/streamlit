@@ -44,39 +44,40 @@ def main():
             # st.write(file_details)
 
             # Import input image into a PIL object
-            img = Image.open(image_file)         # img is now a Pillow object, with img.size -> (1024, 768)
+            img = Image.open(image_file)         # jpg img => PIL Object --- img.size -> (1024, 768)
             img = img.resize((256, 256))      
 
             # -----------------------------
-            # For displaying input image alone in Streamlit
+            # For displaying input image by itself in Streamlit
             img_ = img.copy()     # Note - img_ is a PIL Obj & st.image() below requires a PIL obj to display it on the Streamlit web page !!!
             # st.write('Input image')
             # st.image(img_, width=250)
 
             # -----------------------------
-            # For displaying the mask image alone in Streamlit (ie. ground truth in this case): 
-            mask = Image.open(mask_file)      # converts 'mask_file' to a PIL object
+            # For displaying the mask image by itself in Streamlit (ie. ground truth in this case): 
+            mask = Image.open(mask_file)      # jpg img => PIL Object
             mask = mask.resize((256, 256))    # just to make consistent with input image & pred image
             # st.image(mask, width=250)
             # -----------------------------
 
             # ****** MAKE PREDICTION ****** :
-            # Convert PIL object to np array, then pre-process the image ie. normalize + expand_dims
+            # First convert PIL object to np array & pre-process ie. normalize + expand_dims
             img = np.array(img)      # PIL image => np array
-            arr = np.expand_dims(np.expand_dims(normalize(img), 2), 0)   # normalize + expand_dims, now img.shape -> (1, 256, 256, 1)
+            arr = np.expand_dims(np.expand_dims(normalize(img), 2), 0) # normalize + expand_dims - arr.shape -> (1, 256, 256, 1)
             
             threshold = .3
-            pred = (model.predict(arr)[0, :, :, 0] > threshold).astype(np.uint8)*255   # pred is np arr of size (256, 256). Pixel values are 0 (black) or 255 (white)
+            pred = (model.predict(arr)[0, :, :, 0] > threshold).astype(np.uint8)*255   
+            # pred is np arr of size (256, 256). Pixel values are 0 (black) or 255 (white)
 
             # -----------------------------
-            # For displaying the predicted image alone:
+            # For displaying the predicted image by itself:
             pred_ = Image.fromarray(pred)     # np array => PIL Object
             # pred_ = np.array(pred_)
             # st.write('prediction')
             # st.image(pred_, width = 250)
             # -----------------------------
 
-            # For displaying the input image, ground truth & prediction side by side - remember that st.image() requires PIL objects !!!:
+            # For displaying side by side the input image, ground truth & prediction (remember that st.image() requires PIL objects):
             #images = [img_, mask, pred_]
             #st.image(images, caption=['input image', 'ground_truth', 'prediction'], width=200)
             
@@ -88,11 +89,10 @@ def main():
             with col3:
                 st.image(pred_, caption=['prediction'])  #'test_img.png',width=360,use_column_width='never')
 
-    else:
+    else:    # this is for the 'About' tab on the Streamlit web page I guess
         st.subheader("About")
         st.info("Built with Streamlit")
         st.info("Jesus Saves")
-
 
 
 if __name__ == '__main__':
