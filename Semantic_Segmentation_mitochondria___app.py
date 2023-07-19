@@ -32,11 +32,11 @@ def main():
     if choice == "Home":       # Note --- 'Home' is for images
         st.subheader("Semantic Segmentation of Mitochondria in Electron Microscopy Images")
 
-        # Upload input image on Streamlit web site:
-        image_file = st.file_uploader("Upload Input Image", type=['png','jpeg','jpg'])      # this image_file is ready to go into PIL.Image.open() !
+        # Upload raw input image on Streamlit web site, then pass it to PIL.Image.open() - see below!:
+        image_file = st.file_uploader("Upload Input Image", type=['png','jpeg','jpg'])
 
-        # Upload mask/target/groud_truth image on Streamlit web site:
-        mask_file = st.file_uploader("Upload Mask Image ie. ground truth", type=['png','jpeg','jpg'])        # this mask_file is ready to go into PIL.Image.open() !
+        # Upload raw mask/target/groud_truth image on Streamlit web site, then pass it to PIL.Image.open() - see below!::
+        mask_file = st.file_uploader("Upload Mask Image ie. ground truth", type=['png','jpeg','jpg'])
         
         
         if image_file is not None and mask_file is not None:
