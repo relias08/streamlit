@@ -1,6 +1,7 @@
 # IMPORTANT NOTE --- This file is for runing predictions using model.predict() and 
 # not requests.post() and that RestAPI end-point from TF Serving!
-# I have stored this file in github - see "https://github.com/relias08/streamlit/blob/main/Semantic_Segmentation_mitochondria___app.py"
+# Location of this file in Github is - "
+https://github.com/relias08/streamlit/blob/main/Semantic_Segmentation_mitochondria___app.py"
 
 # This file is based on --- "jcharis___mitochondria___app.py"
 
