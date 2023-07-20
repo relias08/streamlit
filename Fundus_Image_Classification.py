@@ -87,6 +87,44 @@ checkpoint_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/
 best_model.load_state_dict(checkpoint['state_dict'])
 
 # ---------------------------------------------------------------------------------
+
+def main():
+    menu = ["Home", "About"]
+    choice = st.sidebar.selectbox("Menu", menu)
+
+    if choice == "Home":       # Note --- 'Home' is for images
+        st.subheader("Classification of Retinal Fundoscopy Images")
+
+        # Upload raw input image on Streamlit web site, then pass it to PIL.Image.open() - see below!:
+        image_file = st.file_uploader("Upload Input Image", type=['png','jpeg','jpg'])        
+        
+        if image_file is not None:
+            # file_details = {"Filename":image_file.name, "FileType":image_file.type, "FileSize":image_file.size}
+            # st.write(file_details)
+
+            # Import input image into a PIL object
+            img = Image.open(image_file)         # jpg img => PIL Object --- img.size -> (1024, 768)
+            img = img.resize((256, 256))      
+
+            # -----------------------------
+            # For displaying input image by itself in Streamlit
+            img_ = img.copy()     # Note - img_ is a PIL Obj & st.image() below requires a PIL obj to display it on the Streamlit web page !!!
+            st.write('Input image')
+            st.image(img_, width=250)
+          
+
+            # ****** MAKE PREDICTION ******
+            # First pre-process the input image using feature_extractor:
+            processed_image = feature_extractor(img_, return_tensors = 'pt')  # processed_image is a dict with 1 key ie. 'pixel_values'
+            final_image = processed_image['pixel_values'][0].unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])
+            final_image = final_image.to(device)
+
+            # Run prediction on trained ViT model
+
+
+
+
+####################################################################
 # ****** Pre-process the input image using feature_extractor ******
 
 # Label=2 (because it is from folder 2) ie. Glaucoma
