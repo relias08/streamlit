@@ -100,3 +100,20 @@ test_image = PIL.Image.open(test_image_path)    # test_image.size ---> (512, 512
 processed_image = feature_extractor(test_image, return_tensors = 'pt')  # processed_image is a dict with 1 key ie. 'pixel_values'
 final_image = processed_image['pixel_values'][0].unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])
 final_image = final_image.to(device)
+
+# ---------------------------------------------------------------------------------
+#****** Run prediction on trained ViT model ******
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+best_model = best_model.to(device)
+
+best_model.eval()
+with torch.no_grad():
+  output = best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
+
+# output ---> ImageClassifierOutput(loss=None, logits=tensor([[-0.6122, -0.7214,  3.5567, -0.4223, -0.0570, -0.4900, -0.1830, -0.6580]],
+#                                   device='cuda:0'), hidden_states=None, attentions=None)
+
+prediction = output.logits.argmax(dim = 1)
+
+id2label[prediction.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
