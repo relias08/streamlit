@@ -38,9 +38,11 @@ num_classes = 8
 
 feature_extractor = ViTFeatureExtractor.from_pretrained(model_name)
 model = ViTForImageClassification.from_pretrained(model_name,
-                                num_labels = num_classes,      # num_classes = len(ds.classes) ie. 8
+                                num_labels = num_classes,         # num_classes = 8
                                 label2id = label2id,
-                                id2label = id2label)  #.to(device)   # Ritheesh did not use .to(device) --- this is applied inside Trainer automatically!
+                                id2label = id2label)  #.to(device)   
+
+# Ritheesh did not use .to(device) --- this is applied inside Trainer automatically!
 
 # ---------------------------------------------------------------------------------
 Build the Pytorch Lightning model
@@ -79,7 +81,7 @@ class Classifier(pl.LightningModule):
 best_model = Classifier(model, lr=2e-5)   # so best_model is a Pytorch Lightning model !
 
 ---------------------------------------------------------------------------------
-#****** LOAD PRE_TRAINED WEIGHTS ON TO ABOVE PYTORCH LIGHTNING MODEL ******
+#****** LOAD PRE-TRAINED WEIGHTS ON TO ABOVE PYTORCH LIGHTNING MODEL ******
 # (this can be used only to run INFERENCE using the trained model ie. not for continued training from saved checkpoint)
 
 checkpoint_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/tb_logs123/Test___June_19/version_3/checkpoints/epoch=15-step=880.ckpt"
@@ -125,19 +127,19 @@ def main():
 
 
 ####################################################################
-# ****** Pre-process the input image using feature_extractor ******
+# # ****** Pre-process the input image using feature_extractor ******
 
-# Label=2 (because it is from folder 2) ie. Glaucoma
-test_image_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/test_/2/1020_left.jpg"
+# # Label=2 (because it is from folder 2) ie. Glaucoma
+# test_image_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/test_/2/1020_left.jpg"
 
-# Label=5  ie. Hypertension
-# test_image_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/test_/5/1031_right.jpg"
+# # Label=5  ie. Hypertension
+# # test_image_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/test_/5/1031_right.jpg"
 
-test_image = PIL.Image.open(test_image_path)    # test_image.size ---> (512, 512)
+# test_image = PIL.Image.open(test_image_path)    # test_image.size ---> (512, 512)
 
-processed_image = feature_extractor(test_image, return_tensors = 'pt')  # processed_image is a dict with 1 key ie. 'pixel_values'
-final_image = processed_image['pixel_values'][0].unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])
-final_image = final_image.to(device)
+# processed_image = feature_extractor(test_image, return_tensors = 'pt')  # processed_image is a dict with 1 key ie. 'pixel_values'
+# final_image = processed_image['pixel_values'][0].unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])
+# final_image = final_image.to(device)
 
 # ---------------------------------------------------------------------------------
 #****** Run prediction on trained ViT model ******
