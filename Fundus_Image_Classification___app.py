@@ -1,4 +1,18 @@
-# All Pytorch imports for Computer Vision
+# IMPORTANT NOTE --- This file is for runing predictions using model.predict() and 
+# not requests.post() and that RestAPI end-point from TF Serving/ Torch Serve !
+
+# Location of this file in Github is:
+# https://github.com/relias08/streamlit/blob/main/Semantic_Segmentation_mitochondria___app.py"
+
+# This file is based on --- "jcharis___mitochondria___app.py"
+
+# Important Points:
+# - st.image() which displays an image on the Streamlit web page requires PIL objects !!!
+# - never use .astype('int') --- always use .astype(np.uint8)   # found out the hard way!   Big Q - what is the difference ???
+
+
+# ---------------------------------------------------------------------------------
+#****** All Pytorch imports for Computer Vision ******
 
 import numpy as np
 import pandas as pd
