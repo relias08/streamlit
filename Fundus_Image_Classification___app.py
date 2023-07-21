@@ -92,8 +92,8 @@ class Classifier(pl.LightningModule):
     def configure_optimizers(self):    # see Aladdin's vid #2 (7:55)
         return torch.optim.Adam(self.parameters(), lr=self.hparams.lr)    # Q - can we include scheduler in here ?
 
-
-best_model = Classifier(model, lr=2e-5)     # so best_model is a Pytorch Lightning model !
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+best_model = Classifier(model, lr=2e-5).to(device)       # so best_model is a Pytorch Lightning model !
 
 #****** LOAD PRE-TRAINED WEIGHTS ON TO ABOVE PYTORCH LIGHTNING MODEL ******
 # (this model can be used only to run INFERENCE using the trained model ie. not for continued training from saved checkpoint)
@@ -136,10 +136,7 @@ def main():
             final_image = processed_image['pixel_values'][0].unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])
             final_image = final_image.to(device)
 
-            # Run prediction on trained ViT model:
-            device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-            best_model = best_model.to(device)
-
+            # Run prediction on trained ViT model:      
             best_model.eval()
             with torch.no_grad():
               output = best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
