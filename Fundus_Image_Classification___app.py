@@ -136,9 +136,17 @@ def main():
             prediction = id2label[class.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
             st.write(f'Prediction: {prediction}')
 
-            # Ground Truth:
+            # Ground Truth: --- need to do this
+
+        else:    # this is for the 'About' tab on the Streamlit web page I guess
+          st.subheader("About")
+          st.info("Built with Streamlit")
+          st.info("Jesus Saves")
 
 
+if __name__ == '__main__':
+    main()
+  
 ####################################################################
 # # ****** Pre-process the input image using feature_extractor ******
 
