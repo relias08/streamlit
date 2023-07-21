@@ -113,9 +113,7 @@ def main():
         st.subheader("Classification of Retinal Fundoscopy Images")
 
         # Upload raw input image on Streamlit web site, then pass it to PIL.Image.open() - see below!:
-        image_file = st.file_uploader("Upload Input Image", type=['png','jpeg','jpg']) 
-
-        st.write('Ground Truth')
+        image_file = st.file_uploader("Upload Input Image", type=['png','jpeg','jpg'])         
         
         if image_file is not None:
             # file_details = {"Filename":image_file.name, "FileType":image_file.type, "FileSize":image_file.size}
@@ -130,7 +128,8 @@ def main():
             img_ = img.copy()     # Note - img_ is a PIL Obj & st.image() below requires a PIL obj to display it on the Streamlit web page !!!
             st.write('Input image')
             st.image(img_, width=250)
-          
+
+            st.write('Ground Truth: ')          
 
             # ****** MAKE PREDICTION ******
             # First pre-process the input image using feature_extractor (ie. normalize + re-size):
