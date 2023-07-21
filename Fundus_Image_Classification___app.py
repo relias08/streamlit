@@ -146,8 +146,8 @@ def main():
 #                                   logits=tensor([[-0.6122, -0.7214,  3.5567, -0.4223, -0.0570, -0.4900, -0.1830, -0.6580]], device='cuda:0'), 
 #                                   hidden_states=None, attentions=None)
 
-            class = output.logits.argmax(dim = 1)
-            prediction = id2label[class.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
+            output_class = output.logits.argmax(dim = 1)
+            prediction = id2label[output_class.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
             st.write(f'Prediction: {prediction}')
 
             # Ground Truth: --- need to do this
