@@ -120,7 +120,7 @@ def main():
             # st.write(file_details)
 
             # Import input image into a PIL object
-            img = Image.open(image_file)         # jpg img => PIL Object --- img.size -> (1024, 768)
+            img = PIL.Image.open(image_file)         # jpg img => PIL Object --- img.size -> (1024, 768)
             img = img.resize((256, 256))      
 
             # -----------------------------
