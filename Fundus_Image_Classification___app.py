@@ -60,7 +60,7 @@ model = ViTForImageClassification.from_pretrained(model_name,
 
 # ---------------------------------------------------------------------------------
 #****** Build the Pytorch Lightning model ******
-# Nice if I could put this block into a separate file called model.py and then use --- 'from model import Classifier'
+# Nice if I could put this block into a separate file and call it here using --- 'from model import Classifier'
 
 from torchmetrics import Accuracy
 
