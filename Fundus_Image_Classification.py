@@ -45,9 +45,8 @@ model = ViTForImageClassification.from_pretrained(model_name,
 # Ritheesh did not use .to(device) --- this is applied inside Trainer automatically!
 
 # ---------------------------------------------------------------------------------
-Build the Pytorch Lightning model
-
-# Nice if I could put this block into a separate file called model.py and then use 'from model import Classifier'
+#****** Build the Pytorch Lightning model ******
+# Nice if I could put this block into a separate file called model.py and then use --- 'from model import Classifier'
 
 from torchmetrics import Accuracy
 
@@ -78,17 +77,17 @@ class Classifier(pl.LightningModule):
         return torch.optim.Adam(self.parameters(), lr=self.hparams.lr)    # Q - can we include scheduler in here ?
 
 
-best_model = Classifier(model, lr=2e-5)   # so best_model is a Pytorch Lightning model !
+best_model = Classifier(model, lr=2e-5)     # so best_model is a Pytorch Lightning model !
 
----------------------------------------------------------------------------------
 #****** LOAD PRE-TRAINED WEIGHTS ON TO ABOVE PYTORCH LIGHTNING MODEL ******
-# (this can be used only to run INFERENCE using the trained model ie. not for continued training from saved checkpoint)
+# (this model can be used only to run INFERENCE using the trained model ie. not for continued training from saved checkpoint)
 
 checkpoint_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/tb_logs123/Test___June_19/version_3/checkpoints/epoch=15-step=880.ckpt"
 
 best_model.load_state_dict(checkpoint['state_dict'])
 
 # ---------------------------------------------------------------------------------
+# ****** STREAMLIT STUFF ******
 
 def main():
     menu = ["Home", "About"]
@@ -116,14 +115,28 @@ def main():
           
 
             # ****** MAKE PREDICTION ******
-            # First pre-process the input image using feature_extractor:
+            # First pre-process the input image using feature_extractor (ie. normalize + re-size):
             processed_image = feature_extractor(img_, return_tensors = 'pt')  # processed_image is a dict with 1 key ie. 'pixel_values'
             final_image = processed_image['pixel_values'][0].unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])
             final_image = final_image.to(device)
 
-            # Run prediction on trained ViT model
+            # Run prediction on trained ViT model:
+            device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+            best_model = best_model.to(device)
 
+            best_model.eval()
+            with torch.no_grad():
+              output = best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
 
+# output ---> ImageClassifierOutput(loss=None, 
+#                                   logits=tensor([[-0.6122, -0.7214,  3.5567, -0.4223, -0.0570, -0.4900, -0.1830, -0.6580]], device='cuda:0'), 
+#                                   hidden_states=None, attentions=None)
+
+            class = output.logits.argmax(dim = 1)
+            prediction = id2label[class.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
+            st.write(f'Prediction: {prediction}')
+
+            # Ground Truth:
 
 
 ####################################################################
@@ -141,19 +154,19 @@ def main():
 # final_image = processed_image['pixel_values'][0].unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])
 # final_image = final_image.to(device)
 
-# ---------------------------------------------------------------------------------
-#****** Run prediction on trained ViT model ******
+# # ---------------------------------------------------------------------------------
+# #****** Run prediction on trained ViT model ******
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-best_model = best_model.to(device)
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# best_model = best_model.to(device)
 
-best_model.eval()
-with torch.no_grad():
-  output = best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
+# best_model.eval()
+# with torch.no_grad():
+#   output = best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
 
-# output ---> ImageClassifierOutput(loss=None, logits=tensor([[-0.6122, -0.7214,  3.5567, -0.4223, -0.0570, -0.4900, -0.1830, -0.6580]],
-#                                   device='cuda:0'), hidden_states=None, attentions=None)
+# # output ---> ImageClassifierOutput(loss=None, logits=tensor([[-0.6122, -0.7214,  3.5567, -0.4223, -0.0570, -0.4900, -0.1830, -0.6580]],
+# #                                   device='cuda:0'), hidden_states=None, attentions=None)
 
-prediction = output.logits.argmax(dim = 1)
+# prediction = output.logits.argmax(dim = 1)
 
-id2label[prediction.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
+# id2label[prediction.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
