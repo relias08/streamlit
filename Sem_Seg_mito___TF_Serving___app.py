@@ -1,10 +1,13 @@
 # Consider the Github version of this file as original ie. 
 # [Sem_Seg_mito___TF_Serving___app.py](https://github.com/relias08/streamlit/new/main)
 
-# DONE (but need to see if this file works!) ---> Need to modify this file to run predictions by using requests.post() to send 
-# data to that RestAPI end-point from TF Serving (instead of using model.predict)! Need to adapt following file from Github
-# I think:
-# [tfserving___bare_min_version_worked.py](https://github.com/relias08/streamlit/blob/main/tfserving___bare_min_version_worked.py)
+# DONE (but need to see if this file works!) ---> In this file we are running predictions by using requests.post() to send 
+# data to that RestAPI end-point from TF Serving (instead of using model.predict)! 
+
+# This file was created by adapting the following files:
+# (1) Github - [tfserving___bare_min_version_worked.py](https://github.com/relias08/streamlit/blob/main/tfserving___bare_min_version_worked.py)
+# (2) Laptop - "204__how_to_run_predictions_in_Streamlit" --- stored in following folder:
+#               "__Deploying_Models___MAIN/___Streamlit_and_mlflow/worked___mitichondria___Sreeni_204"
 
 # Important Points:
 # - st.image() which displays an image on the Streamlit web page requires PIL objects !!!
