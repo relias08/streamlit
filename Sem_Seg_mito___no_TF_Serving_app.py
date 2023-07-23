@@ -1,4 +1,4 @@
-# IMPORTANT NOTE --- This file is for runing predictions using model.predict() and 
+# IMPORTANT NOTE --- This file is for running predictions using model.predict() and 
 # not requests.post() and that RestAPI end-point from TF Serving!
 
 # Location of this file in Github is:
