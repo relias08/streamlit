@@ -3,8 +3,8 @@
 # Consider the Github version of this file as original ie. 
 # [Sem_Seg_mito___TF_Serving___app.py](https://github.com/relias08/streamlit/new/main)
 
-# In this file we are running predictions by using requests.post() to send data to that RestAPI end-point from 
-# TF Serving (instead of using model.predict)! 
+# In this file we are running predictions on the Mitochondrial Sem Seg model by using requests.post() to send data to 
+# that RestAPI end-point from TF Serving (instead of using model.predict)! 
 
 # This file was created by adapting the following files:
 # (1) Github - [tfserving___bare_min_version_worked.py](https://github.com/relias08/streamlit/blob/main/tfserving___bare_min_version_worked.py)
