@@ -1,5 +1,8 @@
 # I HAVE NOT YET TESTED THIS FILE --- SO NEED TO CHECK IF IT WORKS PROPERLY !!!
 
+# For how to use this file, see foll. file on Laptop - "204__how_to_run_predictions_in_Streamlit" --- stored in following 
+# folder on Laptop --- "__Deploying_Models___MAIN/___Streamlit_and_mlflow/worked___mitichondria___Sreeni_204"
+
 # If deploying the Sem_Seg_mito model from Colab using ngrok, this file should be called inside the following Colab file in My Google Drive:
 # [Deploy Sem Seg mito model using Streamlit___Colab+ngrok___no_TFServing___worked](https://drive.google.com/drive/folders/141zJ3AU4KA4rM2j5xA4ljd1UVWgQbOS-)
 # as follows --- !streamlit run https://github.com/relias08/streamlit/edit/main/Sem_Seg_mito___TF_Serving___app.py&>/dev/null&
@@ -10,10 +13,7 @@
 # In this file we are running predictions on the Mitochondrial Sem Seg model by using requests.post() to send data to 
 # that RestAPI end-point from TF Serving (instead of using model.predict)! 
 
-# This file was created by adapting the following files:
-# (1) Github - [tfserving___bare_min_version_worked.py](https://github.com/relias08/streamlit/blob/main/tfserving___bare_min_version_worked.py)
-# (2) Laptop - "204__how_to_run_predictions_in_Streamlit" --- stored in following folder on Laptop:
-#               "__Deploying_Models___MAIN/___Streamlit_and_mlflow/worked___mitichondria___Sreeni_204"
+# This file was created by adapting the following file in Github --- [tfserving___bare_min_version_worked.py](https://github.com/relias08/streamlit/blob/main/tfserving___bare_min_version_worked.py)
 
 # Important Points:
 # - st.image() which displays an image on the Streamlit web page requires PIL objects !!!
