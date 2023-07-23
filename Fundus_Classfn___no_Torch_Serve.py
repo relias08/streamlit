@@ -1,6 +1,6 @@
 # Entire code worked perfectly fine !
 
-# IMPORTANT NOTE --- This file is for runing predictions using requests.post() 
+# IMPORTANT NOTE --- This file is for runing predictions using model(input) and not requests.post() 
 # and that RestAPI end-point from Torch Serve !
 
 # Location of this file in Github is:
