@@ -6,7 +6,7 @@
 
 # This file was created by adapting the following files:
 # (1) Github - [tfserving___bare_min_version_worked.py](https://github.com/relias08/streamlit/blob/main/tfserving___bare_min_version_worked.py)
-# (2) Laptop - "204__how_to_run_predictions_in_Streamlit" --- stored in following folder:
+# (2) Laptop - "204__how_to_run_predictions_in_Streamlit" --- stored in following folder on Laptop:
 #               "__Deploying_Models___MAIN/___Streamlit_and_mlflow/worked___mitichondria___Sreeni_204"
 
 # Important Points:
