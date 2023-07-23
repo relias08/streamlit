@@ -1,5 +1,6 @@
 # I HAVE NOT YET TESTED THIS FILE --- SO NEED TO CHECK IF IT WORKS PROPERLY !!!
-# Basically this file should be called inside the following file in My Google Drive:
+
+# If deploying the Sem_Seg_mito model from Colab using ngrok, this file should be called inside the following Colab file in My Google Drive:
 # [Deploy Sem Seg mito model using Streamlit___Colab+ngrok___no_TFServing___worked](https://drive.google.com/drive/folders/141zJ3AU4KA4rM2j5xA4ljd1UVWgQbOS-)
 # as follows --- !streamlit run https://github.com/relias08/streamlit/edit/main/Sem_Seg_mito___TF_Serving___app.py&>/dev/null&
 
