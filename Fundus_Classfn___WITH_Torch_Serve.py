@@ -1,5 +1,6 @@
 # First need to create END-POINT using Torch Serve and then incorporate it into this file !!! 
-# Once I have created the END-POINT, for how to send image data to the API END-POINT using that json.dumps(), etc ---> need to adapt from:
+# Once I have created the END-POINT, for how to send image data to the API END-POINT using that json.dumps(), etc ---> need
+# to adapt from:
 # [Sem_Seg_mito___WITH_TF_Serving___app.py](https://github.com/relias08/streamlit/edit/main/Sem_Seg_mito___WITH_TF_Serving___app.py)
 
 # IMPORTANT NOTE --- This file is for runing predictions using requests.post() 
