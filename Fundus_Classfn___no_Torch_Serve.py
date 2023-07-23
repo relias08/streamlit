@@ -1,10 +1,10 @@
 # Entire code worked perfectly fine !
 
-# IMPORTANT NOTE --- This file is for runing predictions using model.predict() and 
-# not requests.post() and that RestAPI end-point from TF Serving/ Torch Serve !
+# IMPORTANT NOTE --- This file is for runing predictions using requests.post() 
+# and that RestAPI end-point from Torch Serve !
 
 # Location of this file in Github is:
-# https://github.com/relias08/streamlit/blob/main/Semantic_Segmentation_mitochondria___app.py"
+# https://github.com/relias08/streamlit/edit/main/Fundus_Classfn___no_Torch_Serve.py
 
 # This file is based on --- "jcharis___mitochondria___app.py"
 
