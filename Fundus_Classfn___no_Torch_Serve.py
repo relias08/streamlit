@@ -1,5 +1,8 @@
 # Entire code worked perfectly fine !
 
+This file is run inside the foll. file stored in My Google Drive:
+[Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
+
 # IMPORTANT NOTE --- This file is for runing predictions using model(input) and not requests.post() 
 # and that RestAPI end-point from Torch Serve !
 
