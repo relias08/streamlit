@@ -1,6 +1,7 @@
 # I HAVE NOT YET TESTED THIS FILE --- SO NEED TO CHECK IF IT WORKS PROPERLY !!!
 # Basically this file should be called inside the following file in My Google Drive:
 # [Deploy Fundus model using Streamlit___no TF_Serving.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=XKqTZUeY9MWr)
+as follows --- !streamlit run https://github.com/relias08/streamlit/edit/main/Sem_Seg_mito___TF_Serving___app.py&>/dev/null&
 
 # Consider the Github version of this file as original ie. 
 # [Sem_Seg_mito___TF_Serving___app.py](https://github.com/relias08/streamlit/new/main)
