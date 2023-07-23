@@ -94,7 +94,7 @@ def main():
             with col2:
                 st.image(mask, caption=['ground truth']) #'test_img.png',width=360,use_column_width='never')
             with col3:
-                st.image(pred, caption=['prediction'])  #'test_img.png',width=360,use_column_width='never')
+                st.image(pred_, caption=['prediction'])  #'test_img.png',width=360,use_column_width='never')
 
     else:
         st.subheader("About")
