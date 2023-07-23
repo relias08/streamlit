@@ -3,7 +3,7 @@
 # For how to use this file, see following super file on Laptop - "204__how_to_run_predictions_in_Streamlit" --- stored in 
 # following folder on Laptop --- "__Deploying_Models___MAIN/___Streamlit_and_mlflow/worked___mitichondria___Sreeni_204"
 
-# If deploying the Sem_Seg_mito model from Colab using ngrok, this file should be called inside the following Colab file in My Google Drive:
+# Basically if we are deploying the Sem_Seg_mito model using Streamlit from Colab using ngrok, this file should be called inside the following Colab file in My Google Drive:
 # [Deploy Sem Seg mito model using Streamlit___Colab+ngrok___no_TFServing___worked](https://drive.google.com/drive/folders/141zJ3AU4KA4rM2j5xA4ljd1UVWgQbOS-)
 # as follows --- !streamlit run https://github.com/relias08/streamlit/edit/main/Sem_Seg_mito___TF_Serving___app.py&>/dev/null&
 
