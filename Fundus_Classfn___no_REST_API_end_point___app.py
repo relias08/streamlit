@@ -68,7 +68,10 @@ model = ViTForImageClassification.from_pretrained(model_name,
 
 # ---------------------------------------------------------------------------------
 #****** Build the Pytorch Lightning model ******
-# Nice if I could put this block into a separate file and call it here using --- 'from model import Classifier'
+# Ayayooo - I don't think its necessary to build the model using Pytorch Lightning since we are not training the model 
+# in this lesson. We are just taking the ViT model from Transformers Library, loading the pre-trained wts onto it and running predictions!
+
+# # Nice if I could put this block into a separate file and call it here using for eg. --- 'from model import Classifier'
 
 from torchmetrics import Accuracy
 
