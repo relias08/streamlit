@@ -104,7 +104,7 @@ best_model = Classifier(model, lr=2e-5).to(device)       # so best_model is a Py
 #****** LOAD PRE-TRAINED WEIGHTS ON TO ABOVE PYTORCH LIGHTNING MODEL ******
 # (this model can be used only to run INFERENCE using the trained model ie. not for continued training from saved checkpoint)
 
-checkpoint_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_____ViT/tb_logs123/Test___June_19/version_3/checkpoints/epoch=15-step=880.ckpt"
+checkpoint_path = "/content/gdrive/MyDrive/Colab Notebooks/_CNN___Main/_1___ViT/tb_logs123/Test___June_19/version_3/checkpoints/epoch=15-step=880.ckpt"
 checkpoint = torch.load(checkpoint_path)   
 best_model.load_state_dict(checkpoint['state_dict'])
 
