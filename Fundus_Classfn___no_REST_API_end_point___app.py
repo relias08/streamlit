@@ -1,6 +1,6 @@
 # Entire code worked perfectly fine !
 
-# Basically this file is called inside the foll. file stored in My Google Drive:
+# Basically this file is called inside the foll. file stored in My Google Drive to launch the Streamlit Web Page:
 # [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb]
 # (https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
 
