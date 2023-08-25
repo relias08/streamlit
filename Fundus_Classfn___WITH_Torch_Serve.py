@@ -1,10 +1,10 @@
-# First need to create END-POINT using Torch Serve and then incorporate it into this file !!! 
+# # IMPORTANT NOTE:
+# - First need to create REST API end-point using Mlflow and then incorporate it into this file !!! 
+# - Then I need to use requests.post() in this file to run predictions
+
 # Once I have created the END-POINT, for how to send image data to the API END-POINT using that json.dumps(), etc ---> need
 # to adapt from:
 # [Sem_Seg_mito___WITH_TF_Serving___app.py](https://github.com/relias08/streamlit/edit/main/Sem_Seg_mito___WITH_TF_Serving___app.py)
-
-# IMPORTANT NOTE --- This file is for runing predictions using requests.post() 
-# and that RestAPI end-point from Torch Serve !
 
 # Location of this file in Github is:
 # https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___WITH_Torch_Serve.py
