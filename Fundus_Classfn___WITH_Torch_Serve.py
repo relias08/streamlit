@@ -1,4 +1,4 @@
-# # IMPORTANT NOTE:
+# IMPORTANT NOTE:
 # - First need to create REST API end-point using Mlflow and then incorporate it into this file !!! 
 # - Then I need to use requests.post() in this file to run predictions
 
