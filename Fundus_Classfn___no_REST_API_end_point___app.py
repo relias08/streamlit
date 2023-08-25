@@ -4,8 +4,8 @@
 # [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb]
 # (https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
 
-# IMPORTANT NOTE --- This file is for runing predictions using model(input) and not requests.post() 
-# and that RestAPI end-point from Torch Serve !
+# IMPORTANT NOTE --- This file is for running predictions using model(input) and not requests.post() 
+# and that RestAPI end-point from Mlflow !
 
 # Location of this file in Github is:
 # https://github.com/relias08/streamlit/edit/main/Fundus_Classfn___no_Torch_Serve.py
