@@ -2,7 +2,8 @@
 
 # Basically this file is called inside the foll. file stored in My Google Drive to launch the Streamlit Web Page:
 # [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb]
-# (https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
+# (https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) as follows:
+# !streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&
 
 # IMPORTANT NOTE --- This file is for running predictions using model(input) and not requests.post() 
 # and that RestAPI end-point from Mlflow !
