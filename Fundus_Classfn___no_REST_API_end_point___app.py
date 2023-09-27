@@ -1,8 +1,8 @@
 # Entire code worked perfectly fine !
 
-# Basically this file is called inside the foll. file stored in My Google Drive to launch the Streamlit Web Page:
-# [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb]
-# (https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) as follows:
+# Basically this current app.py file is used to launch the Streamlit web page by calling it inside the 
+# [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) 
+# file stored in Google Drive using the following line of code:
 # !streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&
 
 # IMPORTANT NOTE --- This file is for running predictions using model(input) and not requests.post() 
