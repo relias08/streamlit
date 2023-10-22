@@ -1,15 +1,12 @@
 # Entire code worked perfectly fine !
 
-# Basically this current app.py file is used to launch the Streamlit web page by calling it inside the 
+# To launch the Streamlit web page, the current app.py file is called inside the 
 # [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) 
-# file stored in Google Drive which contains the following line of code:
+# file stored in Google Drive using the following line of code:
 # !streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&
 
-# IMPORTANT NOTE --- This file is for running predictions using model(input) and not requests.post() 
+# IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() 
 # and that RestAPI end-point from Mlflow !
-
-# Location of this file in Github is:
-# https://github.com/relias08/streamlit/edit/main/Fundus_Classfn___no_Torch_Serve.py
 
 # This file is based on --- "jcharis___mitochondria___app.py"
 
