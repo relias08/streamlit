@@ -174,7 +174,7 @@ def main():
 
             output_class = output.argmax(dim = 1).detach().cpu().item()
             id2label = {0:'Normal', 1:'Diabetes', 2:'Glaucoma', 3:'Cataract', 4:'Age related Macular Degeneration', 5:'Hypertension', 6:'Pathological Myopia', 7:'Other diseases/abnormalities'}
-            prediction = id2label[output_class.detach().cpu().item()]     # returns for eg. --- 'Glaucoma'
+            prediction = id2label[output_class]     # returns for eg. --- 'Glaucoma'
             st.write(f'Prediction: {prediction}')
 
             # Ground Truth: --- need to do this
