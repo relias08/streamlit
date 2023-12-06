@@ -125,9 +125,7 @@ best_model = NN(cnn)   # so best_model is a Pytorch Lightning model !       # so
 checkpoint_path = "/content/gdrive/MyDrive/Colab Notebooks/VIT/Nov25/Resnet/BEST_MODEL_resnet34_lr=1e-05_epoch=8_val_loss=0.44_val_acc=0.88.ckpt"
 checkpoint = torch.load(checkpoint_path)   
 best_model.load_state_dict(checkpoint['state_dict'])
-
-
-
+best_model = best_model.to(device)
 
 # ---------------------------------------------------------------------------------
 # ****** STREAMLIT STUFF ******
@@ -165,10 +163,7 @@ def main():
             final_image = final_image.unsqueeze(0)    # final_image.shape ---> torch.Size([1, 3, 224, 224])   
             final_image = final_image.to(device)
 
-            # Run prediction on trained ViT model:   
-            best_model = best_model.to(device)
-            final_image = final_image.to(device)   
-
+            # Run prediction on trained ViT model: 
             best_model.eval()
             with torch.no_grad():
               output = best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
