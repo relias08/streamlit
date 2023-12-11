@@ -21,23 +21,10 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ---------------------------------------------------------------------------------
 #****** Import the Resnet model from torch hub ******
-
-cnn = torch.hub.load('pytorch/vision:v0.10.0', mod, pretrained=True)      # 'resnet18', 50
-cnn.fc = nn.Linear(cnn.fc.in_features, 8)
-cnn = cnn.to(device)    # req because the model was trained on GPU I guess !!!
-
-
 # Ritheesh did not use .to(device) --- this is applied inside Trainer automatically!
 
 # ---------------------------------------------------------------------------------
 #****** Build the Pytorch Lightning model ******
-# Ayayooo - I don't think its necessary to build the model using Pytorch Lightning since we are not training the model 
-# in this lesson. We are just taking the ViT model from Transformers Library, loading the pre-trained wts onto it and running predictions!
-
-# # Nice if I could put this block into a separate file and call it here using for eg. --- 'from model import Classifier'
-
-from torchmetrics import Accuracy
-criterion = nn.CrossEntropyLoss()
 
 class NN(pl.LightningModule):
     def __init__(self, model, lr: float = 1e-5, **kwargs):
@@ -46,55 +33,10 @@ class NN(pl.LightningModule):
         self.model = model
         # self.model_used = mod    # Q - will this save the mod in mlflow ui? (just like I once saved data used - small_data)
         self.forward = self.model.forward
-        self.acc = Accuracy(task='multiclass' if num_classes > 2 else 'binary',
-                            num_classes=num_classes)
+        self.acc = Accuracy(task='multiclass',
+                            num_classes=8)
 
-    def training_step(self, batch, batch_idx):     # simply create code for forward pass & loss in this method !!!
-        x_batch, y_batch = batch
-        yhat_logits = self(x_batch)    # Aladdin's vid #2 (5:06) says we can do --- self.forward(**batch)
-        loss = criterion(yhat_logits, y_batch)
-        self.log(f"train_loss", loss, prog_bar=True, on_epoch=True, on_step=False)
-        acc = self.acc(yhat_logits.argmax(1), y_batch)
-        self.log(f"train_acc", acc, prog_bar=True, on_epoch=True, on_step=False)
-        return loss
-
-    def validation_step(self, batch, batch_idx):
-        x_batch, y_batch = batch
-        yhat_logits = self(x_batch)
-        loss = criterion(yhat_logits, y_batch)
-        self.log(f"val_loss", loss, prog_bar=True, on_epoch=True, on_step=False)
-        acc = self.acc(yhat_logits.argmax(1), y_batch)
-        self.log(f"val_acc", acc, prog_bar=True, on_epoch=True, on_step=False)
-        return loss
-
-    # def configure_optimizers(self):    # see Aladdin's vid #2 (7:55)
-    #     return torch.optim.Adam(self.parameters(), lr=self.hparams.lr)    # Q - can we include scheduler in here ?
-
-    def configure_optimizers(self):
-        #optimizer = torch.optim.SGD(self.parameters(), lr=0.1)
-        optimizer = torch.optim.Adam(params = self.parameters(), lr = self.hparams.lr)
-        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-                          optimizer, mode='min', factor=0.1, patience=3
-                                                              )
-        return {
-              'optimizer': optimizer,
-              'lr_scheduler': {
-                  'scheduler': scheduler,
-                  #'monitor': 'val_loss',   # NEED TO FIX THIS --- got error in .fit() on re-loading model & using scheduler, saying --- metric "val_loss" is not available! --- how come ????
-                  'monitor': 'train_loss',
-              }
-          }
-
-
-best_model = NN(cnn)   # so best_model is a Pytorch Lightning model !       # so best_model is a Pytorch Lightning model !
-
-#****** LOAD PRE-TRAINED WEIGHTS ON TO ABOVE PYTORCH LIGHTNING MODEL ******
-# (this model can be used only to run INFERENCE using the trained model ie. not for continued training from saved checkpoint)
-
-checkpoint_path = "/content/gdrive/MyDrive/Colab Notebooks/VIT/Nov25/Resnet/BEST_MODEL_resnet34_lr=1e-05_epoch=8_val_loss=0.44_val_acc=0.88.ckpt"
-checkpoint = torch.load(checkpoint_path)   
-best_model.load_state_dict(checkpoint['state_dict'])
-best_model = best_model.to(device)
+loaded_best_model = torch.load(stored_model, map_location = device)
 
 # ---------------------------------------------------------------------------------
 # ****** STREAMLIT STUFF ******
@@ -135,7 +77,7 @@ def main():
             # Run prediction on trained ViT model: 
             best_model.eval()
             with torch.no_grad():
-              output = best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
+              output = loaded_best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
 
 # output ---> ImageClassifierOutput(loss=None, 
 #                                   logits=tensor([[-0.6122, -0.7214,  3.5567, -0.4223, -0.0570, -0.4900, -0.1830, -0.6580]], device='cuda:0'), 
