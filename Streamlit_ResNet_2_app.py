@@ -16,15 +16,13 @@
 
 
 # ---------------------------------------------------------------------------------
+# Imports 
+
 import pytorch_lightning as pl
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ---------------------------------------------------------------------------------
-#****** Import the Resnet model from torch hub ******
-# Ritheesh did not use .to(device) --- this is applied inside Trainer automatically!
-
-# ---------------------------------------------------------------------------------
-#****** Build the Pytorch Lightning model ******
+#****** Get the best model using torch.load() ******
 
 class NN(pl.LightningModule):
     def __init__(self, model, lr: float = 1e-5, **kwargs):
@@ -75,7 +73,7 @@ def main():
             final_image = final_image.to(device)
 
             # Run prediction on trained ViT model: 
-            best_model.eval()
+            loaded_best_model.eval()
             with torch.no_grad():
               output = loaded_best_model(final_image)   # note that 'output' is a dictionary with 1 key ie 'logits'
 
