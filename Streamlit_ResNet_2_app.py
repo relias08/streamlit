@@ -18,6 +18,7 @@
 # ---------------------------------------------------------------------------------
 # Imports 
 
+import torch
 import pytorch_lightning as pl
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
