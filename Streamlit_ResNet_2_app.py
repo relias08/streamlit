@@ -27,24 +27,6 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # ---------------------------------------------------------------------------------
 #****** Get the best model using torch.load() ******
 
-try:
-  from google.colab import drive
-  COLAB = True
-  print("Using Colab")
-except:
-  COLAB = False
-  print("Not using Colab")
-
-if COLAB:
-  from google.colab import drive
-  drive.mount('/content/gdrive')
-  #data_dir = Path('/content/gdrive/MyDrive/Colab Notebooks/VIT/test_')
-  stored_model = "/content/gdrive/MyDrive/Colab Notebooks/VIT/model_88.pth"
-else:
-  # data_dir = 'path_to_test_ folder on laptop'
-  # checkpoint_path = 'path to BEST_MODEL_resnet34_lr=1e-05_epoch=8_val_loss=0.44_val_acc=0.88.ckpt on laptop'
-  pass
-
 class NN(pl.LightningModule):
     def __init__(self, model, lr: float = 1e-5, **kwargs):
         super().__init__()
@@ -55,6 +37,7 @@ class NN(pl.LightningModule):
         self.acc = Accuracy(task='multiclass',
                             num_classes=8)
 
+stored_model = "/content/gdrive/MyDrive/Colab Notebooks/VIT/model_88.pth"
 loaded_best_model = torch.load(stored_model, map_location = device)
 
 # ---------------------------------------------------------------------------------
