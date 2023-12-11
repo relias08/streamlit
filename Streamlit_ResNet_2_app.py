@@ -1,12 +1,9 @@
-mod = 'resnet34'
-num_classes = 8
-
 # Entire code worked perfectly fine !
 
 # To launch the Streamlit web page, the current app.py file is called inside the 
 # [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) 
 # file stored in Google Drive using the following line of code:
-# !streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&
+# !streamlit run https://github.com/relias08/streamlit/blob/main/Streamlit_ResNet_2_app.py&>/dev/null&
 
 # IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() 
 # and that RestAPI end-point from Mlflow !
@@ -19,35 +16,7 @@ num_classes = 8
 
 
 # ---------------------------------------------------------------------------------
-#****** All Pytorch imports for Computer Vision ******
-
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-
-import streamlit as st
-
-import os
-from pathlib import Path
-from tqdm import tqdm
-import PIL
-
-import torchvision
-from torchvision.datasets import MNIST
-from torchvision.datasets import ImageFolder
-from torchvision.transforms import ToTensor
-
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
-from torch.utils.data import Dataset, DataLoader, random_split, Subset, WeightedRandomSampler
-import torchmetrics
-
 import pytorch_lightning as pl
-from pytorch_lightning.loggers import TensorBoardLogger
-from pytorch_lightning.callbacks import Callback, EarlyStopping, ModelCheckpoint
-
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ---------------------------------------------------------------------------------
