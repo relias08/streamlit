@@ -4,30 +4,27 @@
 # *** 1st Tier ***
 # This file .
 # - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should have contained only the code for creating the Streamlit web page 
-# ie. 1st Tier stuff, but I have also built the best model within this file itself instead of sending a requests.post() to a Rest API end point presented by mlflow running 
-# on a separate 2nd Tier computer
-- This file should have been run using a terminal of the 1st Tier computer using the foll. command:
-# !streamlit run some_app.py. This will result in the web page being available by default on port 8501 of the 1st Tier. 
+#   ie. 1st Tier stuff, but I have also built the best model within this file itself and am running predictions using model(input) instead of sending a requests.post()
+#   to a Rest API end point presented by mlflow running on a separate 2nd Tier computer
+# - This file should have been used only to launch the web page by running the foll. command on a terminal of the 1st Tier computer --- !streamlit run some_app.py. 
+#   This would have resulted in the web page being available by default on port 8501 of the 1st Tier. 
 # - We would then use a browser on a Client computer to send a HTTP request to the 1st Tier computer as follows --- "https://ip_add_of_1st_Tier_computer:8501"
 
 # *** 2nd Tier ***
 # Current file with Streamlit code should actually send a request.post() to a REST API end-point on a separate computer ie. 2nd Tier (or Application Server). We should 
-# have mlflow running on the 2nd Tier computer by running the foll. command on a terminal of the 2nd Tier computer ---  "!mlflow --sqlite ...."
-# Remember that Mlflow running on the 2nd Tier computer should have the best model logged in the 'Model' section of the Mlflow UI
+# have had mlflow running on the 2nd Tier computer by running the foll. command on a terminal of the 2nd Tier computer ---  "!mlflow --sqlite ...."
+# Remember that Mlflow running on the 2nd Tier computer should have the best model logged in the 'Model' section of the Mlflow UI for the Rest API stuff to work.
 
 # *** 3rd Tier ***
 # This will be a separate computer on which some database will be running
 # =======================================================================================
 
-# This is how I am currently running stuff --- Colab is my 1st and 2nd Tier combined
-# - We call the current file from inside the following file running on Colab:
-# [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
-# using the following command --- "!streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&"
-
-# - Current file (which contains code for creating the Streamlit web page) is used to launch the Streamlit web page by calling it inside the following file running on Colab:
-# (so Colab is like the 2nd Tier I guess): 
-#  
-# which has the following line of code --- "!streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&"
+# This is how I am currently running stuff --- Colab is my 1st and 2nd Tier combined - see below for explanation:
+# - We call the current file which contains code for launching the Streamlit Web Page from inside the following file running on Colab (because we cannot open a terminal
+# on Colab) - [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
+# Above file contains the following command --- "!streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&"
+# Normally this should have only launched the Streamlit Web Page and Colab would have been my 1st Tier computer. But I have also incorporated the 2nd Tier stuff
+# ie. model end point within the Streamlit code itself. So essentially Colab is like a combined 1st Tier and 2nd Tier I guess --- need to verify !
 
 # IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() ie. not that RestAPI end-point from Mlflow !
 
