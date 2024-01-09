@@ -1,6 +1,6 @@
 # Entire code worked perfectly fine !
 
-# To launch the Streamlit web page, the current app.py file is called inside the 
+# This file is used to launch the Streamlit web page by calling if from inside the foll. file stored in Github: 
 # [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) 
 # file stored in Google Drive using the following line of code:
 # !streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&
