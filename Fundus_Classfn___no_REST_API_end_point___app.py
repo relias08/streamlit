@@ -2,10 +2,12 @@
 
 # =======================================================================================
 # *** 1st Tier ***
-# This file should have contained only the code for creating the Streamlit web page ie. 1st Tier stuff, but I have also built the best model within this file itself
-# instead of calling the best model by sending a requests.post() to a Rest Api end point presented by mlflow running on a separate 2nd Tier computer.
-# - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should be launched by running the following command on a terminal of the 
-# 1st Tier computer --- !streamlit run some_app.py. This will result in the web page being available by default on port 8501 of the 1st Tier. 
+# This file .
+# - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should have contained only the code for creating the Streamlit web page 
+# ie. 1st Tier stuff, but I have also built the best model within this file itself instead of sending a requests.post() to a Rest API end point presented by mlflow running 
+# on a separate 2nd Tier computer
+- This file should have been run using a terminal of the 1st Tier computer using the foll. command:
+# !streamlit run some_app.py. This will result in the web page being available by default on port 8501 of the 1st Tier. 
 # - We would then use a browser on a Client computer to send a HTTP request to the 1st Tier computer as follows --- "https://ip_add_of_1st_Tier_computer:8501"
 
 # *** 2nd Tier ***
