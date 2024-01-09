@@ -1,6 +1,8 @@
 # Entire code worked perfectly fine !
 
-# =======================================================================================
+# =====================
+ 3 TIER ARCHITECTURE:
+# =====================
 # *** 1st Tier ***
 # This file .
 # - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should have contained only the code for creating the Streamlit web page 
@@ -17,16 +19,14 @@
 
 # *** 3rd Tier ***
 # This will be a separate computer on which some database will be running
-# =======================================================================================
+# ===========================
 
-# This is how I am currently running stuff --- Colab is my 1st and 2nd Tier combined - see below for explanation:
+# This is how I am currently running stuff --- basically Colab is my 1st and 2nd Tier combined - see below for explanation:
 # - We call the current file which contains code for launching the Streamlit Web Page from inside the following file running on Colab (because we cannot open a terminal
 # on Colab) - [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
 # Above file contains the following command --- "!streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&"
 # Normally this should have only launched the Streamlit Web Page and Colab would have been my 1st Tier computer. But I have also incorporated the 2nd Tier stuff
 # ie. model end point within the Streamlit code itself. So essentially Colab is like a combined 1st Tier and 2nd Tier I guess --- need to verify !
-
-# IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() ie. not that RestAPI end-point from Mlflow !
 
 # This file is based on --- "jcharis___mitochondria___app.py"
 
