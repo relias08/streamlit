@@ -5,7 +5,7 @@
 # file stored in Google Drive using the following line of code:
 # !streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&
 
-# IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() and that RestAPI end-point from Mlflow !
+# IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() ie. not that RestAPI end-point from Mlflow !
 
 # This file is based on --- "jcharis___mitochondria___app.py"
 
