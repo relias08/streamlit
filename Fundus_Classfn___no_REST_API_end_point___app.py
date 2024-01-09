@@ -1,7 +1,7 @@
 # Entire code worked perfectly fine !
 
 # =====================
- 3 TIER ARCHITECTURE:
+#  3 TIER ARCHITECTURE
 # =====================
 # *** 1st Tier ***
 # This file .
