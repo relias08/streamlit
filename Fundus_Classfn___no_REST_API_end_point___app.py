@@ -1,10 +1,12 @@
 # Entire code worked perfectly fine !
 
+# *** 1st Tier ***
 # This file contains code for creating the Streamlit web page. 
 # - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should be launched by running the following command on a terminal of the 
 # 1st Tier computer --- !streamlit run some_app.py. This will result in the web page being available by default on port 8501 of the 1st Tier. 
 # - We would then use a browser on a Client computer to send a HTTP request to the 1st Tier computer as follows --- "https://ip_add_of_1st_Tier_computer:8501"
 
+# *** 2nd Tier ***
 # This file should actually send a request.post() to a REST API end-point on a separate computer ie. 2nd Tier (or Application Server) --- which should have mlflow running
 # on it using that "!mlflow --sqlite ...." command. Remember that Mlflow running on the 2nd Tier computer should have the best model logged in the 'Model' section of the 
 # Mlflow UI
