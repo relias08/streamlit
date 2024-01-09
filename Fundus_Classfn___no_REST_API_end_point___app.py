@@ -4,7 +4,6 @@
 #  3 TIER ARCHITECTURE
 # =====================
 # *** 1st Tier ***
-# This file .
 # - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should have contained only the code for creating the Streamlit web page 
 #   ie. 1st Tier stuff, but I have also built the best model within this file itself and am running predictions using model(x) instead of sending a requests.post()
 #   to a Rest API end point presented by mlflow running on a separate 2nd Tier computer
