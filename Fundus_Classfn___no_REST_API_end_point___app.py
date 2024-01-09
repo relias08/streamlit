@@ -6,7 +6,7 @@
 # *** 1st Tier ***
 # This file .
 # - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should have contained only the code for creating the Streamlit web page 
-#   ie. 1st Tier stuff, but I have also built the best model within this file itself and am running predictions using model(input) instead of sending a requests.post()
+#   ie. 1st Tier stuff, but I have also built the best model within this file itself and am running predictions using model(x) instead of sending a requests.post()
 #   to a Rest API end point presented by mlflow running on a separate 2nd Tier computer
 # - This file should have been used only to launch the web page by running the foll. command on a terminal of the 1st Tier computer --- !streamlit run some_app.py. 
 #   This would have resulted in the web page being available by default on port 8501 of the 1st Tier. 
@@ -36,6 +36,8 @@
 
 
 # ---------------------------------------------------------------------------------
+# (1) BUILD THE BEST MODEL
+
 #****** All Pytorch imports for Computer Vision ******
 
 import numpy as np
@@ -130,7 +132,8 @@ checkpoint = torch.load(checkpoint_path)
 best_model.load_state_dict(checkpoint['state_dict'])
 
 # ---------------------------------------------------------------------------------
-# ****** STREAMLIT STUFF ******
+# (2) CODE FOR BUILDING THE STREAMLIT WEB PAGE --- inside which the model created above will be called using model(x) instead of using a request.post() command 
+# to send a HTTP request to a Rest API end-point presented by Mlflow running on a separate 2nd Tier computer (ie. Application server)
 
 def main():
     menu = ["Home", "About"]
