@@ -1,20 +1,30 @@
 # Entire code worked perfectly fine !
 
+# =======================================================================================
 # *** 1st Tier ***
-# This file contains code for creating the Streamlit web page. 
+# This file should have contained only the code for creating the Streamlit web page ()
 # - This file should basically be on a separate computer ie. 1st Tier (or Web Server) and should be launched by running the following command on a terminal of the 
 # 1st Tier computer --- !streamlit run some_app.py. This will result in the web page being available by default on port 8501 of the 1st Tier. 
 # - We would then use a browser on a Client computer to send a HTTP request to the 1st Tier computer as follows --- "https://ip_add_of_1st_Tier_computer:8501"
 
 # *** 2nd Tier ***
-# This file should actually send a request.post() to a REST API end-point on a separate computer ie. 2nd Tier (or Application Server) --- which should have mlflow running
-# on it using that "!mlflow --sqlite ...." command. Remember that Mlflow running on the 2nd Tier computer should have the best model logged in the 'Model' section of the 
-# Mlflow UI
+# Current file with Streamlit code should actually send a request.post() to a REST API end-point on a separate computer ie. 2nd Tier (or Application Server). We should 
+# have mlflow running on the 2nd Tier computer by running the foll. command on a terminal of the 2nd Tier computer ---  "!mlflow --sqlite ...."
+# Remember that Mlflow running on the 2nd Tier computer should have the best model logged in the 'Model' section of the Mlflow UI
 
-# This file is used to launch the Streamlit web page by calling if from inside the foll. file stored in Github: 
-# [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) 
-# file stored in Google Drive using the following line of code:
-# !streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&
+# *** 3rd Tier ***
+# This will be a separate computer on which some database will be running
+# =======================================================================================
+
+# This is how I am currently running stuff --- Colab is my 1st and 2nd Tier combined
+# - We call the current file from inside the following file running on Colab:
+# [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ)
+# using the following command --- "!streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&"
+
+# - Current file (which contains code for creating the Streamlit web page) is used to launch the Streamlit web page by calling it inside the following file running on Colab:
+# (so Colab is like the 2nd Tier I guess): 
+#  
+# which has the following line of code --- "!streamlit run https://github.com/relias08/streamlit/blob/main/Fundus_Classfn___no_REST_API_end_point___app.py&>/dev/null&"
 
 # IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() ie. not that RestAPI end-point from Mlflow !
 
