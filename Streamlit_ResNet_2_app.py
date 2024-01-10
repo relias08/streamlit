@@ -2,7 +2,7 @@
 
 # To launch the Streamlit web page, the current app.py file is called inside the 
 # [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) 
-# file stored in Google Drive using the following line of code:
+# file stored in Google Drive on rshblr I think using the following line of code:
 # !streamlit run https://github.com/relias08/streamlit/blob/main/Streamlit_ResNet_2_app.py&>/dev/null&
 
 # IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() 
