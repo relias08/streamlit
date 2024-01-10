@@ -1,8 +1,8 @@
 # Entire code worked perfectly fine !
 
 # To launch the Streamlit web page, the current app.py file is called inside the 
-# [Deploy Fundus model using Streamlit --- Colab + ngrok.ipynb](https://colab.research.google.com/drive/1W2VmuhsIKEwiAJQoSc0kaZKmOk96DSV8#scrollTo=8UXnKWbBOtGQ) 
-# file stored in Google Drive on rve.colab using the following line of code:
+# [Deploy_Resnet_model_using_Streamlit_Colab_+_ngrok.ipynb](https://colab.research.google.com/drive/1boV04wU0MboB9N7otLDp5e_-35hr7cTT#scrollTo=Y3iov29vPmRR) 
+# file stored in Google Drive on rshblr using the following line of code:
 # !streamlit run https://github.com/relias08/streamlit/blob/main/Streamlit_ResNet_2_app.py&>/dev/null&
 
 # IMPORTANT NOTE --- in this file we are running predictions using model(input) and not requests.post() and that RestAPI end-point from Mlflow !
