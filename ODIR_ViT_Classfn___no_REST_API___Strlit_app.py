@@ -139,7 +139,7 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     if choice == "Home":       # Note --- 'Home' is for images
-        st.subheader("Classification of Retinal Fundoscopy Images")
+        st.subheader("ViT Classification of Retinal Fundoscopy Images")
 
         # Upload raw input image on Streamlit web site, then pass it to PIL.Image.open() - see below!:
         image_file = st.file_uploader("Upload Input Image", type=['png','jpeg','jpg'])         
