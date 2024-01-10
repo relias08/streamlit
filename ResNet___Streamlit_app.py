@@ -67,7 +67,7 @@ class NN(pl.LightningModule):
         self.acc = Accuracy(task='multiclass',
                             num_classes=8)
 
-stored_model = "/content/gdrive/MyDrive/Colab Notebooks/VIT/model_88.pth"
+stored_model = "/content/gdrive/MyDrive/Colab Notebooks/VIT/Resnet/model_88.pth"
 loaded_best_model = torch.load(stored_model, map_location = device)
 
 # ---------------------------------------------------------------------------------
