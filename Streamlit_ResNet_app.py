@@ -178,6 +178,7 @@ def main():
             st.write(f'Prediction: {prediction}')
 
             # Ground Truth: --- need to do this
+            # Need to add that bar chart
 
     else:    # this is for the 'About' tab on the Streamlit web page I guess
       st.subheader("About")
