@@ -178,7 +178,7 @@ def main():
             st.write(f'Prediction: {prediction}')
 
             # Ground Truth: --- need to do this
-            # Need to add that bar chart
+            # Need to add that bar chart from "3___Mlflow__basic_concise_code.ipynb" file in "Pytorch/Learning_Path" folder on Lptp
 
     else:    # this is for the 'About' tab on the Streamlit web page I guess
       st.subheader("About")
