@@ -68,7 +68,11 @@ class NN(pl.LightningModule):
                             num_classes=8)
 
 stored_model = "/content/gdrive/MyDrive/Colab Notebooks/VIT/Resnet/model_88.pth"
-loaded_best_model = torch.load(stored_model, map_location = device)
+loaded_best_model = torch.load(stored_model, map_location = device, weights_only = False)
+
+ # In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. 
+# Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. 
+# Do it only if you got the file from a trusted source.
 
 # ---------------------------------------------------------------------------------
 # ****** STREAMLIT STUFF ******
