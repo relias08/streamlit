@@ -2,7 +2,7 @@
 # not requests.post() and that RestAPI end-point from TF Serving!
 
 # Location of this file in Github is:
-# https://github.com/relias08/streamlit/blob/main/Semantic_Segmentation_mitochondria___app.py"
+# https://github.com/relias08/streamlit/blob/main/Sem_Seg_mito___no_TF_Serving_app.py
 
 # This file is based on --- "jcharis___mitochondria___app.py"
 
@@ -97,3 +97,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
